@@ -15,7 +15,7 @@
         <div class="header-content">
             <div class="inner-content">
                 <h2>Hi Rhoda</h2>
-                <p>date</p>
+                <p class="date">date</p>
             </div>
             <img class="avatar" src="images/avatar.png" alt="avatar">
         </div>
@@ -33,7 +33,7 @@
                 <p class="total">Total</p>
                 <h4 class="card-value">1000<span class="unit-value">steps</span></h4>
             </div>
-            <div class="card">
+            <div class="card" id="weight">
                 <div class="inner-card-header">
                     <h3 class="card-title">Weight</h3>
                     <p class="card-emoji">🏋🏽</p>
@@ -53,7 +53,7 @@
         </div>
         </section>
         <section class="calories-section">
-            <ul>
+            <div><ul>
                 <li>120Kcal</li>
                 <li class="list-name">Target</li>
 
@@ -62,12 +62,45 @@
 
                 <li>22 Kcal</li>
                 <li class="list-name">Remaining</li>
-            </ul>
+            </ul></div>
+            
 
-            <div class="progress-bar"></div>
+            <div class="progress-container">
+                <div class="progress-outer">
+                    <div class="progress-inner">
+                        <div id="num-of-cal">
+                            65%
+                        </div>
+                    </div>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                width="160px" height="160px">
+                <defs>
+                    <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#007bff"/>
+                        <stop offset="100%" stop-color="#673ab7"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="80" cy="80" r="70" stroke-linecap="round"
+                transform="rotate(-90 80 80)"
+                />
+                </svg>
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+              
         </section>
         <section class="calender-section"></section>
+
+        <div class="form-modal hidden">
+            <form method="get">
+                <input type="number" name="height" id="form-height" placeholder="Enter your height">
+                <input type="number" name="weight" id="form-weight" placeholder="Enter your weight">
+                <button type="submit" class="bmi-btn">Calculate BMI</button>
+            </form>
+        </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
 
