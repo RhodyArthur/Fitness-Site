@@ -1,0 +1,108 @@
+*,::before, ::after {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: #000;
+}
+
+.summary {
+    flex: 1;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.inner-content {
+    margin-right: 20px; 
+}
+
+.avatar {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+
+/* Main Content Styling */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+section {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    width: 140px;
+    height: 120px;
+    background-color: #f8f6f6;
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.inner-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.card-emoji {
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.total, .list-name {
+    font-size: 0.875rem;
+    color: #d3d3d3;
+}
+
+.card-value {
+    font-size: 1.875rem;
+}
+
+.unit-value {
+    font-size: 1rem;
+}
+
+.list-name {
+    list-style-type: none;
+}
