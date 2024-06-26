@@ -12,6 +12,46 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
+#user-data {
+    max-width: 400px;
+    margin:100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#user-data input[type="text"],
+#user-data input[type="number"]
+ {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#user-data label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#user-data button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#user-data button[type="submit"]:hover {
+    background-color: #007bff;
+}
+
+
 /* header */
 header {
     display: flex;
@@ -173,3 +213,51 @@ i{
 .hidden {
     display: none;
 }
+
+
+.form-modal, .modal {
+    position: fixed;
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    top: 20%;
+    left: 25%;
+    margin: auto;
+    border-radius: 3px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 5px 5px 255px 0px #00000080;
+    
+  }
+
+  .bmi-data {
+    align-items: center;
+    /* text-align: center; */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 10px auto;
+
+  }
+  .close-modal-btn-container {
+    text-align: right;
+    margin: 9px;
+  }
+  
+  .modal-close-btn {
+    font-size: 22px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: black;
+  }
+  
+  .modal-close-btn:hover,
+  .modal-close-btn:active {
+    color: red;
+    cursor: pointer;
+    background: transparent;
+  }

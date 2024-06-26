@@ -7,6 +7,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="userdata-container">
+        <form id="user-data">
+            <h2>Provide the information below</h2>
+            <input id="fullname" type="text" placeholder="Enter your name" required>
+            <input id="age" type="number" placeholder="Enter your age" required>
+            <input id="data-weight" type="number" placeholder="Enter your weight (kg)" required>
+            <input id="data-height" type="number" placeholder="Enter your height (cm)" required>
+            <label>
+                <input type="radio" name="gender" value="male">Male
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female">Female
+            </label>
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- display userdetails -->
+    <div class="modal hidden">
+            <div class="close-modal-btn-container">
+                <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            </div>
+            <div id="user-details">
+                <!-- User details will be inserted here -->
+            </div>
+    </div>
+    
+   
+    <div class="main-container hidden">
     <header class="header-container">
         <div class="summary">
         <h1>Summary</h1>
@@ -14,7 +43,7 @@
 
         <div class="header-content">
             <div class="inner-content">
-                <h2>Hi Rhoda</h2>
+                <h2 class="username">Hi Rhoda</h2>
                 <p class="date">date</p>
             </div>
             <img class="avatar" src="images/avatar.png" alt="avatar">
@@ -39,7 +68,7 @@
                     <p class="card-emoji">🏋🏽</p>
                 </div>  
                 <p class="total">Total</p>
-                <h4 class="card-value">1000<span class="unit-value">kg</span></h4>
+                <h4 class="card-value" id="weight-value">1000<span class="unit-value">kg</span></h4>
             </div>
             <div class="card">
                 <div class="inner-card-header">
@@ -92,15 +121,32 @@
         </section>
         <section class="calender-section"></section>
 
-        <div class="form-modal hidden">
-            <form method="get">
-                <input type="number" name="height" id="form-height" placeholder="Enter your height">
-                <input type="number" name="weight" id="form-weight" placeholder="Enter your weight">
-                <button type="submit" class="bmi-btn">Calculate BMI</button>
-            </form>
-        </div>
+
+        
+            <div class="form-modal hidden">
+                <div class="close-modal-btn-container">
+                    <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+                </div>
+                <div id="bmi-data">
+                    <p>Weight: </p>
+                    <p>Height: </p>
+                    <ul>
+                        <li>Underweight: BMI < 18.5</li>
+                        <li>Normal weight: BMI 18.5 - 24.9</li>
+                        <li>Overweight: BMI 25 - 29.9</li>
+                        <li>Underweight: BMI >= 30</li>
+                    </ul>
+
+                    <button type="submit" class="bmi-btn">Calculate BMI</button>
+               <!-- display data dynamically -->
+                </div>                 
+            </div>
+
+
     </main>
-    <script src="script.js"></script>
+</div>
+    <script src="script.js" type="module"></script>
+    <script src="userdata.js"></script>
 </body>
 </html>
 
