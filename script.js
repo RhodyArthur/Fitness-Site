@@ -109,8 +109,12 @@ function calculateCal(){
 
     // Update progress bar
     const progressPercent = burnedCalories / targetCalories;
+    if (burnedCalories > targetCalories){
+        document.getElementById('num-of-cal').textContent = '100%';
+    }else{
+        document.getElementById('num-of-cal').textContent = `${Math.round(progressPercent)}%`;
+    }
     // document.getElementById('progressInner').style.width = `${progressPercent}%`;
-    document.getElementById('num-of-cal').textContent = `${Math.round(progressPercent)}%`;
 }
 
 // display form when steps is clicked
