@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="userdata-container">
-        <form id="user-data">
-            <h2>Provide the information below</h2>
-            <input id="fullname" type="text" placeholder="Enter your name" required>
-            <input id="age" type="number" placeholder="Enter your age" required>
-            <input id="data-weight" type="number" placeholder="Enter your weight (kg)" required>
-            <input id="data-height" type="number" placeholder="Enter your height (cm)" required>
-            <label>
-                <input type="radio" name="gender" value="male">Male
-            </label>
-            <label>
-                <input type="radio" name="gender" value="female">Female
-            </label>
-            <button type="submit" id="submit-btn">Submit</button>
-        </form>
+        <section class="intro">
+            <h1>Turn <strong>your workout</strong> into a transformative <strong>fitness journey</strong></h1>
+            <span class="beta-text">Elevate your Fitness</span>
+            <p class="top-text">Powered by Mojo</p>
+        </section>
+
+        <main class="main-content">
+            <img class="img-main" src="https://www.shutterstock.com/image-illustration/full-length-young-cute-smiling-600nw-2435073637.jpg" alt="My Scrimba avatar.">
+            <h2>Fitness Hub</h2>
+            <span class="subheading">Provide the following details</span>
+            <p>You can start your fitness journey today and see amazing results!</p>
+            
+            <form id="user-data">
+                <input id="fullname" required type="text" placeholder="Enter your name">
+                <input id="age" required type="number" placeholder="Enter your age">
+                <input id="data-weight" required type="number" placeholder="Enter your weight (kg)">
+                <input id="data-height" required type="number" placeholder="Enter your height (cm)">
+                <div class="controls">
+                <label>
+                    <input type="radio" name="gender" value="male">Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female">Female
+                </label>
+            </div>
+                <button class="btn btn-primary" id="submit-btn" type="submit">Submit</button>
+            </form>   
+            <p class="fine-print">We'll never share your information without permission</p>
+        </main>
+
     </div>
 
     <!-- display userdetails -->
@@ -43,8 +61,8 @@
 
         <div class="header-content">
             <div class="inner-content">
-                <h2 class="username">Hi Rhoda</h2>
-                <p class="date">date</p>
+                <h2 class="username"></h2>
+                <p class="date"></p>
             </div>
             <img class="avatar" src="images/avatar.png" alt="avatar">
         </div>
@@ -54,13 +72,13 @@
         <section class="activity-section">
             <h2>Activity</h2>
             <div class="card-container">
-            <div class="card">
+            <div class="card" id="step">
                 <div class="inner-card-header">
                     <h3 class="card-title">Steps</h3>
                     <p class="card-emoji">👣</p>
                 </div>  
                 <p class="total">Total</p>
-                <h4 class="card-value">1000<span class="unit-value">steps</span></h4>
+                <h4 class="card-value" id="step-value">0<span class="unit-value">steps</span></h4>
             </div>
             <div class="card" id="weight">
                 <div class="inner-card-header">
@@ -83,14 +101,14 @@
         </section>
         <section class="calories-section">
             <div><ul>
-                <li>120Kcal</li>
-                <li class="list-name">Target</li>
+                <li id="target">0</li>
+                <li class="list-name" >Target</li>
 
-                <li>98Kcal</li>
+                <li  id="burned">0</li>
                 <li class="list-name">Burned</li>
 
-                <li>22 Kcal</li>
-                <li class="list-name">Remaining</li>
+                <li id="remaining">0</li>
+                <li class="list-name" >Remaining</li>
             </ul></div>
             
 
@@ -118,6 +136,17 @@
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
               
+            
+              <div class="step-modal hidden">
+                <div class="close-modal-btn-container">
+                    <button class="modal-close-btn" id="step-close-btn">&times;</button>
+                </div>
+                <div class="form-calories">
+                    <input type="number" id="daily-steps" required placeholder="Enter daily steps" min="0">
+                    <input type="number" id="target-cal" required placeholder="Target calories to burn" min="0">
+                    <button id="cal-btn">Calculate Calories</button>
+                  </div>
+        </div>
         </section>
         <section class="calender-section"></section>
 
@@ -125,28 +154,20 @@
         
             <div class="form-modal hidden">
                 <div class="close-modal-btn-container">
-                    <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+                    <button class="modal-close-btn" id="form-close-btn">&times;</button>
                 </div>
                 <div id="bmi-data">
-                    <p>Weight: </p>
-                    <p>Height: </p>
-                    <ul>
-                        <li>Underweight: BMI < 18.5</li>
-                        <li>Normal weight: BMI 18.5 - 24.9</li>
-                        <li>Overweight: BMI 25 - 29.9</li>
-                        <li>Underweight: BMI >= 30</li>
-                    </ul>
-
-                    <button type="submit" class="bmi-btn">Calculate BMI</button>
                <!-- display data dynamically -->
-                </div>                 
+                </div>
             </div>
+
+
+ 
+</div>
 
 
     </main>
 </div>
-    <script src="script.js" type="module"></script>
-    <script src="userdata.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-

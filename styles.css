@@ -5,6 +5,8 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #404040;
 }
 
 h1, h2, h3, h4, p {
@@ -12,42 +14,155 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
-#user-data {
-    max-width: 400px;
-    margin:100px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* =================
+    Typography 
+   ================= */
+
+.userdata-container h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-shadow: 0 2px #007bff;
 }
 
-#user-data input[type="text"],
-#user-data input[type="number"]
- {
+.userdata-container h2 {
+    font-size: 2.25rem;
+    margin: 0.167em 0;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.35;
+}
+
+.beta-text { 
+    font-weight: 900;
+}
+
+.subheading {
+    color: #575757;
+    font-weight: 900;  
+    margin-bottom: 0.5em;
+}
+
+.beta-text,
+.top-text,
+.subheading {
+    text-transform: uppercase;
+}
+
+.top-text {
+    font-size: 0.875rem;
+    font-weight: 900;
+    padding-top: 0.25em;
+    border-top: 5px solid;
+    order: -1;
+    margin: 0 auto;
+}
+
+.fine-print {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #858585;
+}
+
+/* =================
+    Flex containers
+   ================= */
+
+.intro,
+.main-content {
+    display: flex;
+    flex-direction: column; 
+    padding-left: 2em;
+    padding-right: 2em;   
+}
+
+.userdata-container {
+    display: flex;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+}
+/* =================
+    Intro
+   ================= */
+
+.intro { 
+    justify-content: space-between;
+    min-height: 250px;
+    text-align: center;
+    color: #fff;
+    background: #007bff url("https://images.pexels.com/photos/703016/pexels-photo-703016.jpeg");
+    background-size: cover;
+    padding-bottom: 1.5em;
 }
 
-#user-data label {
-    display: block;
-    margin-bottom: 10px;
+/* ====================
+    Main content
+   ==================== */
+   
+.main-content {
+    align-items: center;
+    padding-top: 2.5em;
 }
 
-#user-data button[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+.img-main {
+    width: 120px;
+    border-radius: 50%;
+}
+
+.main-content p,
+form {
+    max-width: 450px;
+}
+
+/* =================
+    Form
+   ================= */
+
+input,
+button {
+    font-family: inherit;
+    width: 100%; 
+    border-radius: 5px;   
+}
+
+input {
+    padding: 0.5em;
+    margin-bottom: 0.75em;
+    border: 2px solid #d1d5db;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #e6e8ec;
+}
+
+.controls{
+    display: flex;
+    justify-content: space-around;
+}
+
+.controls label {
+    display: flex;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 1em 0;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
 }
 
-#user-data button[type="submit"]:hover {
+.btn-primary {
+    color: white;
+    background-color: #007bff;
+    margin-top: 1em;    
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
     background-color: #007bff;
 }
 
@@ -82,6 +197,9 @@ header {
 
 
 /* Main Content Styling */
+.main-container {
+    width: 100%;
+}
 main {
     display: flex;
     flex-direction: column;
@@ -218,31 +336,71 @@ i{
 .form-modal, .modal {
     position: fixed;
     width: 50%;
-    max-width: 500px;
+    max-width: 400px;
     height: auto;
-    top: 20%;
-    left: 25%;
+    top: 15%;
+    left: 20%;
     margin: auto;
-    border-radius: 3px;
+    border-radius: 4px;
     background-color: #fff;
     border: none;
     box-shadow: 5px 5px 255px 0px #00000080;
     
   }
 
-  .bmi-data {
-    align-items: center;
-    /* text-align: center; */
+  .form-modal {
+    padding: 20px;
+    text-align: center;
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    margin: 10px auto;
 
+  .bmi-btn {
+    width: 60%;
+    margin: 10px;
+    background-color: #8cd0fd;
+    border: none;
+    padding: 8px;
   }
+
+  .bmi-result {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background-color: #ecfdf5;
+    text-align: center;
+    margin: 10px auto;
+    padding: 25px 10px;
+    border-radius: 8px;
+  }
+
+  .bmi-info {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  #user-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#user-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#user-details strong {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #333;
+}
+
+  
+  .step-modal {
+    max-width: 250px;
+  }
+ 
   .close-modal-btn-container {
+    width: 10px;
     text-align: right;
     margin: 9px;
   }
@@ -261,3 +419,41 @@ i{
     cursor: pointer;
     background: transparent;
   }
+
+
+  
+/* =================
+    Media queries 
+   ================= */
+
+@media (min-width: 576px) {
+    body {
+        display: flex;
+    }
+    
+    h1 {
+        font-size: 5vw;
+    }
+    
+    h2 {
+        font-size: 2.625rem;
+    }
+    
+    .beta-text {
+        font-size: 1.25rem;
+    }
+    
+    .intro,
+    .main-content {
+        width: 50%;
+    }
+    
+    .intro {
+        min-height: 100vh;
+    }
+    
+    .main-content {
+        justify-content: center;
+        padding-top: 0;
+    }
+}
