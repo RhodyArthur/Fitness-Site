@@ -90,22 +90,27 @@ function calculateCal(){
     const dailySteps = dailyStepEl.value
     const targetCalories = targetCalEl.value
 
-    if (dailySteps === '' || targetCalories === ''){
-        alert('Enter the values')
-        return
+    if (isNaN(dailySteps) || isNaN(targetCalories) || dailySteps <= 0 || targetCalories <= 0) {
+        alert('Please enter valid values for daily steps and target calories.');
+        return;
     }
 
     stepValue.innerHTML = `${dailySteps}<span class="unit-value">steps</span`
     targetCal.innerHTML = `${targetCalories} <span class="unit-value">Kcal</span>`
+    const burnedCalories = dailySteps * 0.1
 
-
-    burnedCal.textContent = `${Math.floor(dailySteps * 0.1)} Kcal`
+    burnedCal.textContent = `${Math.floor(burnedCalories)} Kcal`
     if ((dailySteps * 0.1) > targetCalories){
         remainingCal.textContent = 0
     }
     else {
-        remainingCal.innerHTML = parseFloat(targetCalories) - parseFloat(dailySteps * 0.1)
+        remainingCal.innerHTML = parseFloat(targetCalories) - parseFloat(burnedCalories)
     }
+
+    // Update progress bar
+    const progressPercent = burnedCalories / targetCalories;
+    // document.getElementById('progressInner').style.width = `${progressPercent}%`;
+    document.getElementById('num-of-cal').textContent = `${Math.round(progressPercent)}%`;
 }
 
 // display form when steps is clicked
