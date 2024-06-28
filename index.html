@@ -132,7 +132,6 @@
                 transform="rotate(-90 80 80)"
                 />
                 </svg>
-                <i class="fa-solid fa-arrow-right"></i>
               </div>
               
             
@@ -147,7 +146,21 @@
                   </div>
         </div>
         </section>
-        <section class="calender-section"></section>
+        <section class="timer-section">
+            <div class="timer-container">
+                
+                <div class="timer-display">
+                    <span>Workout Timer</span>
+                    <h3 id="timer">00:00</h3>
+                </div>
+
+                <div id="timer-form">
+                    <label for="work-interval">Work Interval (seconds):</label>
+                    <input type="number" id="work-interval" name="work-interval" min="1" value="30" required>
+                    <button type="button" id="start-timer">Start Timer</button>
+                </div>
+            </div>
+        </section>
         
             <div class="form-modal hidden">
                 <div class="close-modal-btn-container">
@@ -157,11 +170,7 @@
                <!-- display data dynamically -->
                 </div>
             </div>
-
-
- 
 </div>
-
 
     </main>
 </div>

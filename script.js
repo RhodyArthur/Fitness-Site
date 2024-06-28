@@ -33,7 +33,8 @@ const bmiData = document.getElementById('bmi-data')
 const bmiResult = document.querySelector('.bmi-result')
 const bmiInfo = document.querySelector('.bmi-info')
 
-
+// timer
+const startTimerBtn = document.getElementById('start-timer')
 
 // date section
 const dateEl = document.querySelector('.date') 
@@ -192,6 +193,26 @@ document.getElementById('step-close-btn').addEventListener('click', function(){
     stepModal.style.display = 'none'
 })
 
+
+startTimerBtn.addEventListener('click', startTimer);
+// timer function
+function startTimer(){
+    const workInterval = parseInt(document.getElementById('work-interval').value)
+    let timeremaining = workInterval
+
+    const interval = setInterval(()=>{
+        if(timeremaining > 0){
+            timeremaining--
+            updateTimer(timeremaining)
+        }
+    }, 1000)
+}   
+
+function updateTimer(time){
+    const minutes = Math.floor(time/60)
+    const seconds = time % 60
+    document.getElementById('timer').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+}
 
 // let counter = 0
 // setInterval(()=>{
