@@ -205,7 +205,6 @@ function startTimer(){
 
     // play when time starts
     audioEL.play()
-    console.log('sound playing')
     const interval = setInterval(()=>{
         if(timeremaining > 0){
             timeremaining--
