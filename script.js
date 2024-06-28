@@ -7,7 +7,7 @@ const radioEl = document.querySelectorAll('input[name="gender"]')
 const submitBtn = document.getElementById('submit-btn')
 const userDataContainer = document.querySelector('.userdata-container')
 const username = document.querySelector('.username')
-
+const audioEL = document.getElementById('audio')
 // main page
 const mainContainer = document.querySelector('.main-container')
 const avatar = document.querySelector('.avatar')
@@ -183,20 +183,21 @@ function displayBmiData(user){
 
 // close modal
 document.getElementById('modal-close-btn').addEventListener('click', function(){
-    displayModal.style.display = 'none'
+    displayModal.classList.toggle('hidden')
 })
 
 document.getElementById('form-close-btn').addEventListener('click', function(){
-    formModal.style.display = 'none'
+    formModal.classList.toggle('hidden')
 })
 document.getElementById('step-close-btn').addEventListener('click', function(){
-    stepModal.style.display = 'none'
+    stepModal.classList.toggle('hidden')
 })
 
 
 startTimerBtn.addEventListener('click', startTimer);
 // timer function
 function startTimer(){
+    startTimerBtn.disabled = true
     const workInterval = parseInt(document.getElementById('work-interval').value)
     let timeremaining = workInterval
 
@@ -204,6 +205,11 @@ function startTimer(){
         if(timeremaining > 0){
             timeremaining--
             updateTimer(timeremaining)
+        }else{
+            clearInterval(interval)
+            alert('Workout completed')
+            audioEL.play()
+            startTimerBtn.disabled = false
         }
     }, 1000)
 }   
