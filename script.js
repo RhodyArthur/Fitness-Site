@@ -194,21 +194,27 @@ document.getElementById('step-close-btn').addEventListener('click', function(){
 })
 
 
-startTimerBtn.addEventListener('click', startTimer);
+startTimerBtn.addEventListener('click', function(){
+    startTimer()
+this.disabled = true});
 // timer function
 function startTimer(){
     startTimerBtn.disabled = true
     const workInterval = parseInt(document.getElementById('work-interval').value)
     let timeremaining = workInterval
 
+    // play when time starts
+    audioEL.play()
+    console.log('sound playing')
     const interval = setInterval(()=>{
         if(timeremaining > 0){
             timeremaining--
             updateTimer(timeremaining)
         }else{
             clearInterval(interval)
-            alert('Workout completed')
-            audioEL.play()
+            // stop sound when timer reaches 0
+            audioEL.pause()
+            audioEL.currentTime = 0
             startTimerBtn.disabled = false
         }
     }, 1000)
