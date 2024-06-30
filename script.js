@@ -27,6 +27,10 @@ const dailyStepEl = document.getElementById('daily-steps')
 const targetCalEl = document.getElementById('target-cal')
 const calBtn = document.getElementById('cal-btn')
 
+// distance covered
+const distanceCard = document.getElementById('distance')
+const distanceValue = document.getElementById('distance-value')
+
 // bmi
 const formModal = document.querySelector('.form-modal')
 const bmiData = document.getElementById('bmi-data')
@@ -35,6 +39,9 @@ const bmiInfo = document.querySelector('.bmi-info')
 
 // timer
 const startTimerBtn = document.getElementById('start-timer')
+const pauseTimerBtn = document.getElementById('pause-timer');
+    const resumeTimerBtn = document.getElementById('resume-timer');
+    const stopTimerBtn = document.getElementById('stop-timer');
 
 // date section
 const dateEl = document.querySelector('.date') 
@@ -90,6 +97,7 @@ weightCard.addEventListener('click', ()=>{
 function calculateCal(){
     const dailySteps = dailyStepEl.value
     const targetCalories = targetCalEl.value
+   
 
     if (isNaN(dailySteps) || isNaN(targetCalories) || dailySteps <= 0 || targetCalories <= 0) {
         alert('Please enter valid values for daily steps and target calories.');
@@ -99,6 +107,8 @@ function calculateCal(){
     stepValue.innerHTML = `${dailySteps}<span class="unit-value">steps</span`
     targetCal.innerHTML = `${targetCalories} <span class="unit-value">Kcal</span>`
     const burnedCalories = dailySteps * 0.1
+    const distance = (dailySteps * 0.0003048).toFixed(2)
+    distanceValue.innerHTML = `${distance} <span class="unit-value">Km</span>`
 
     burnedCal.textContent = `${Math.floor(burnedCalories)} Kcal`
     if ((dailySteps * 0.1) > targetCalories){
@@ -193,36 +203,109 @@ document.getElementById('step-close-btn').addEventListener('click', function(){
     stepModal.classList.toggle('hidden')
 })
 
+let interval;
+let timeRemaining;
+let isPaused = false;
 
 startTimerBtn.addEventListener('click', function(){
-    startTimer()
-this.disabled = true});
+    startTimer();
+    this.disabled = true;
+    pauseTimerBtn.disabled = false;
+    stopTimerBtn.disabled = false;
+});
+
+pauseTimerBtn.addEventListener('click', function () {
+    pauseTimer();
+    this.disabled = true;
+    resumeTimerBtn.disabled = false;
+});
+
+resumeTimerBtn.addEventListener('click', function () {
+    resumeTimer();
+    this.disabled = true;
+    pauseTimerBtn.disabled = false;
+});
+
+stopTimerBtn.addEventListener('click', function () {
+    stopTimer();
+    startTimerBtn.disabled = false;
+    pauseTimerBtn.disabled = true;
+    resumeTimerBtn.disabled = true;
+    this.disabled = true;
+});
+
+audioEL.addEventListener('ended', function() {
+    // Restart audio when it ends
+    if (!isPaused) {
+        this.currentTime = 0;
+        this.play();
+    }
+})
+
 // timer function
-function startTimer(){
-    startTimerBtn.disabled = true
-    const workInterval = parseInt(document.getElementById('work-interval').value)
-    let timeremaining = workInterval
+function startTimer() {
+    const workInterval = parseInt(document.getElementById('work-interval').value);
+    timeRemaining = workInterval;
 
-    // play when time starts
-    audioEL.play()
-    const interval = setInterval(()=>{
-        if(timeremaining > 0){
-            timeremaining--
-            updateTimer(timeremaining)
-        }else{
-            clearInterval(interval)
-            // stop sound when timer reaches 0
-            audioEL.pause()
-            audioEL.currentTime = 0
-            startTimerBtn.disabled = false
+    // Play sound when the timer starts
+    audioEL.currentTime = 0;
+    audioEL.play();
+
+    interval = setInterval(() => {
+        if (timeRemaining > 0) {
+            timeRemaining--;
+            updateTimer(timeRemaining);
+        } else {
+            clearInterval(interval);
+            // Stop sound when timer reaches 0
+            audioEL.pause();
+            audioEL.currentTime = 0;
+            startTimerBtn.disabled = false;
+            pauseTimerBtn.disabled = true;
+            resumeTimerBtn.disabled = true;
+            stopTimerBtn.disabled = true;
         }
-    }, 1000)
-}   
+    }, 1000);
+}
 
-function updateTimer(time){
-    const minutes = Math.floor(time/60)
-    const seconds = time % 60
-    document.getElementById('timer').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+function pauseTimer() {
+    isPaused = true;
+    clearInterval(interval);
+    audioEL.pause();
+}
+
+function resumeTimer() {
+    isPaused = false;
+    audioEL.play();
+    interval = setInterval(() => {
+        if (timeRemaining > 0) {
+            timeRemaining--;
+            updateTimer(timeRemaining);
+        } else {
+            clearInterval(interval);
+            // Stop sound when timer reaches 0
+            audioEL.pause();
+            audioEL.currentTime = 0;
+            startTimerBtn.disabled = false;
+            pauseTimerBtn.disabled = true;
+            resumeTimerBtn.disabled = true;
+            stopTimerBtn.disabled = true;
+        }
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(interval);
+    timeRemaining = 0;
+    updateTimer(timeRemaining);
+    audioEL.pause();
+    audioEL.currentTime = 0;
+}
+
+function updateTimer(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    document.getElementById('timer').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
 // let counter = 0
