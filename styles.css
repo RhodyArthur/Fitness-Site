@@ -321,7 +321,7 @@ svg {
 
 @keyframes anim{
     100% {
-        stroke-dashoffset: 165;
+        stroke-dashoffset: 48;
     }
 }
 i{
@@ -440,8 +440,11 @@ i{
     width: 50%;
     text-align: center;
 }
-#start-timer {
-    padding: 10px;
+#start-timer,
+#pause-timer,
+#resume-timer,
+#stop-timer {
+    padding: 5px 0;
     background-color: #007BFF;
     color: white;
     border: none;
@@ -449,6 +452,10 @@ i{
     cursor: pointer;
 }
 
+.timer-controls {
+    display: flex;
+    gap: 10px;
+}
 #timer-form button:hover {
     background-color: #0056b3;
 }
