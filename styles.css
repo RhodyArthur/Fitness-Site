@@ -29,7 +29,7 @@ h1, h2, h3, h4, p {
     margin: 0.167em 0;
 }
 
-p {
+.userdata-container > p{
     font-size: 1.125rem;
     line-height: 1.35;
 }
@@ -138,10 +138,19 @@ input:focus {
 }
 
 .controls{
-    display: flex; 
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
+.controls label {
+    display: flex;
+    align-items: center;
+}
+.controls input[type="radio"] {
+    margin-top: 9px;
+    margin-right: 3px;
+}
 
 .btn {
     text-transform: uppercase;
@@ -167,11 +176,12 @@ input:focus {
 /* header */
 
 .summary > p{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 0;
 }
 .summary > h2 {
-    font-size: 2.5rem;
-    font-weight: 400;
+    font-size: 1.8rem;
+    font-weight: 600;
 } 
 
 .header-content {
@@ -179,13 +189,14 @@ input:focus {
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 
 .inner-content {
     display: flex;
     gap: 5px;
+    align-items: center;
 }
 
 .avatar {
@@ -196,11 +207,6 @@ input:focus {
     cursor: pointer;
 }
 
-.user-name {
-    font-size: 1rem;
-    font-weight: 400;
-    color: pink;
-}
 
 /* Main Content Styling */
 .main-container {
@@ -330,6 +336,7 @@ svg {
 @keyframes anim{
     100% {
         stroke-dashoffset: 48;
+        stroke-dashoffset: 48;
     }
 }
 i{
@@ -448,6 +455,7 @@ i{
     width: 50%;
     text-align: center;
 }
+
 #start-timer,
 #pause-timer,
 #resume-timer,
@@ -460,6 +468,10 @@ i{
     cursor: pointer;
 }
 
+.timer-controls {
+    display: flex;
+    gap: 10px;
+}
 .timer-controls {
     display: flex;
     gap: 10px;
