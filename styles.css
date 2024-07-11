@@ -138,13 +138,10 @@ input:focus {
 }
 
 .controls{
-    display: flex;
-    justify-content: space-around;
+    display: flex; 
+    flex-direction: column;
 }
 
-.controls label {
-    display: flex;
-}
 
 .btn {
     text-transform: uppercase;
@@ -168,24 +165,27 @@ input:focus {
 
 
 /* header */
-header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    color: #000;
-}
 
-.summary {
-    flex: 1;
+.summary > p{
+    font-size: 1.5rem;
 }
+.summary > h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+} 
 
 .header-content {
+    background-color: #007BFF;
+    padding: 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
+
 .inner-content {
-    margin-right: 20px; 
+    display: flex;
+    gap: 5px;
 }
 
 .avatar {
@@ -193,8 +193,14 @@ header {
     height: 50px;
     border-radius: 50%; 
     object-fit: cover; 
+    cursor: pointer;
 }
 
+.user-name {
+    font-size: 1rem;
+    font-weight: 400;
+    color: pink;
+}
 
 /* Main Content Styling */
 .main-container {
@@ -208,10 +214,11 @@ main {
 }
 
 section {
-    width: 100%;
-    max-width: 800px;
+    width: 80%;
+    /* max-width: 800px; */
     height: auto;
     margin: 10px 0;
+    margin-top: 0;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -236,6 +243,7 @@ section h2 {
     margin: 0 5px;
     padding: 5px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .inner-card-header {
@@ -244,7 +252,7 @@ section h2 {
     margin-bottom: 30px;
 }
 .card-emoji {
-    background-color: #333;
+    background-color: #fff;
     border-radius: 50%;
 }
 
@@ -338,8 +346,8 @@ i{
     width: 50%;
     max-width: 400px;
     height: auto;
-    top: 15%;
-    left: 20%;
+    top: 35%;
+    left: 30%;
     margin: auto;
     border-radius: 4px;
     background-color: #fff;
