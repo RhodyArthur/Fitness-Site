@@ -118,14 +118,11 @@ function calculateCal(){
         remainingCal.innerHTML = `${Math.round(parseFloat(targetCalories) - parseFloat(burnedCalories))} <span class="unit-value">Kcal</span>`
     }
 
-    // Update progress bar
-    const progressPercent = burnedCalories / targetCalories;
-    if (burnedCalories > targetCalories){
-        document.getElementById('num-of-cal').textContent = '100%';
-    }else{
-        document.getElementById('num-of-cal').textContent = `${Math.round(progressPercent)}%`;
-    }
-    // document.getElementById('progressInner').style.width = `${progressPercent}%`;
+
+     // Update progress bar
+     const progressPercent = Math.min(burnedCalories / targetCalories * 100, 100);
+     document.querySelector('.progress').style.width = `${progressPercent}%`;
+     document.getElementById('progress-text').textContent = `${Math.round(progressPercent)}%`;
 }
 
 // display form when steps is clicked
@@ -314,8 +311,4 @@ function updateTimer(time) {
     document.getElementById('timer').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
-// let counter = 0
-// setInterval(()=>{
-//     counter += 1;
-//     numCalories.innerText = counter + "%"
-// },20)
+
