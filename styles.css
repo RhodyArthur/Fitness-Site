@@ -4,7 +4,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: whitesmoke;
     font-family: 'Source Sans Pro', sans-serif;
     color: #404040;
 }
@@ -190,10 +190,8 @@ input:focus {
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    /* align-items: flex-end; */
-    /* margin: 0 150px; */
     margin: auto;
-    width: 70%;
+    width: 75%;
 }
 
 
@@ -224,7 +222,7 @@ main {
 }
 
 section {
-    width: 70%;
+    width: 75%;
     /* max-width: 800px; */
     height: auto;
     margin: 10px 0;
@@ -244,7 +242,7 @@ section h2 {
 
 .card-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -286,7 +284,7 @@ section h2 {
 
 .calories-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .progress-bar-container {
     width: 100%;
@@ -421,7 +419,7 @@ section h2 {
 
 .timer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
   
 .timer-display {
@@ -448,7 +446,7 @@ section h2 {
 
 .timer-controls {
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 .timer-controls {
     display: flex;
