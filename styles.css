@@ -4,7 +4,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
+    background-color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
     color: #404040;
 }
@@ -213,6 +213,7 @@ input:focus {
 /* Main Content Styling */
 .main-container {
     width: 100%;
+    background-color: whitesmoke;
 }
 main {
     display: flex;
@@ -257,7 +258,7 @@ section h2 {
 
 .inner-card-header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 30px;
 }
 .card-emoji {
