@@ -125,6 +125,7 @@ button {
     border-radius: 5px;   
 }
 
+
 input {
     padding: 0.5em;
     margin-bottom: 0.75em;
@@ -185,7 +186,6 @@ input:focus {
 } 
 
 .header-content {
-    background-color: #007BFF;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -220,7 +220,7 @@ main {
 }
 
 section {
-    width: 80%;
+    width: 70%;
     /* max-width: 800px; */
     height: auto;
     margin: 10px 0;
@@ -421,9 +421,8 @@ i{
   }
  
   .close-modal-btn-container {
-    width: 10px;
     text-align: right;
-    margin: 9px;
+    padding-right: 10px;
   }
   
   .modal-close-btn {
@@ -432,6 +431,7 @@ i{
     background-color: transparent;
     border: 1px solid transparent;
     color: black;
+    width: 0;
   }
   
   .modal-close-btn:hover,
@@ -495,6 +495,10 @@ i{
     
     h2 {
         font-size: 2.625rem;
+    }
+
+    .username {
+        font-size: 2rem;
     }
     
     .beta-text {

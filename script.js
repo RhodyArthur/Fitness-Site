@@ -115,7 +115,7 @@ function calculateCal(){
         remainingCal.textContent = 0
     }
     else {
-        remainingCal.innerHTML = parseFloat(targetCalories) - parseFloat(burnedCalories)
+        remainingCal.innerHTML = `${Math.round(parseFloat(targetCalories) - parseFloat(burnedCalories))} <span class="unit-value">Kcal</span>`
     }
 
     // Update progress bar
@@ -133,7 +133,13 @@ stepCard.addEventListener('click', function(){
     stepModal.classList.remove('hidden')
 })
 
-calBtn.addEventListener('click', calculateCal)
+calBtn.addEventListener('click', function(){
+    calculateCal()
+    dailyStepEl.value = ''
+    targetCalEl.value = ''
+    
+}
+)
 
 // get date of the day
 const getDate = (days, months) => {
